@@ -8,14 +8,6 @@ import css from 'rollup-plugin-css-only';
 
 const production = !process.env.ROLLUP_WATCH;
 
-function serve() {
-	let server;
-
-	function toExit() {
-		if (server) server.kill(0);
-	}
-
-	return {
 		writeBundle() {
 			if (server) return;
 			server = spawn('npm', ['run', 'start', '--', '--dev'], {
